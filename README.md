@@ -23,6 +23,7 @@ _**Terraform Cloud Setup**_
 7. Save the token as TF_API_TOKEN in GitHub Secrets.
 8. Create terraform.tfvars variables under the Workspace
 9. Service Principal login needs the following variables and get the values from the Azure App
+--------
            _subscription_id_
            _client_id_ 
            _client_secret_
@@ -39,9 +40,24 @@ _**Azure RBAC for Service Principal**_
 7. Now assign the role based access policies to the registered App.
 8. Go to the subscriptions select Access Control(IAM) the select Add Role Assignment.
 9. Under Add Role Assignment blade
+----------
         * _Role : **Contributor**_
         * _Assign access to : **User, group or service principal**
         * _select : **Register App**
+
 10. Save the configuration.
 
 _**Azure Resource Validation**_
+
+1. Login to the Azure Portal with your credentials
+2. Go to resouce group and check for **TFCloudRG007** if it exists find the resources under the resourc group 
+3. Validate whether the below resources exists or not
+----------
+           * _Resource Group: **TFCloudRG007**_
+           * _Virtual Network: **Vnet-tf**_
+           * _Subnet: **Subnet01**_
+           * _Public IP: **myPublicIP**_
+           * _Network Security Group: **TFC_NSG**_
+           * _Network Interface: **myNIC**_
+           * _Virtual Machine: **TFCloud**_
+           
