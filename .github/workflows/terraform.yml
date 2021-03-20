@@ -59,14 +59,12 @@ jobs:
           \`\`\`${process.env.PLAN}\`\`\`
           </details>
           *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
-
           github.issues.createComment({
             issue_number: context.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
             body: output
           })
-
     - name: Terraform Plan Status
       if: steps.plan.outcome == 'failure'
       run: exit 1
@@ -74,5 +72,3 @@ jobs:
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: terraform apply -auto-approve
-
-
