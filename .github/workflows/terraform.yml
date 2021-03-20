@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - master
-    paths:
-      - terrraform/resourcegroup/*
+#     paths:
+#       - terrraform/resourcegroup/*
       
   pull_request:
 
