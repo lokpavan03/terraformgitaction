@@ -157,9 +157,6 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
     admin_password = "Password1234!"
     disable_password_authentication = false
 
-
-   }
-
     tags = {
         environment = "Terraform Cloud Demo"
     }
