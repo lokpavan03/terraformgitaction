@@ -19,6 +19,6 @@ provider "azurerm" {
 
 #Create a Resource Group
 resource "azurerm_resource_group" "rg" {
-  name     = "WEgroup"
+  name     = "TerraformCloud"
   location = "West Europe"
 }
