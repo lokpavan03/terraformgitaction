@@ -19,6 +19,6 @@ provider "azurerm" {
 
 #Create a Resource Group
 resource "azurerm_resource_group" "rg" {
-  name     = "TFCloudRG002"
+  name     = "TFCloudRG001"
   location = "West Europe"
 }
