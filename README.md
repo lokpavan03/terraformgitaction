@@ -1,20 +1,21 @@
-# terraformgitaction 
+# Azure Infrastructure build from Terraform Cloud with GitHub Actions Workflow.
 
-<span style="color:black;">In this article</span>
+<span style="color:black;">Contents</span>
 - [GitHub Setup](#GitHub-Setup)
 - [GitHub Actions](#GitHub-Actions)
 - [Terraform Cloud Setup](#Terraform-Cloud-Setup)
 - [Azure RBAC for Service Principal](#Azure-RBAC-for-Service-Principal)
+- [Run the Scenario](#Run-the-Scenario)
 - [Azure Resource Validation](#Azure-Resource-Validation)
 
-## POC on Azure Infrastructure build from Terraform Cloud with GitHub Actions.
+    
 
 ## _**GitHub Setup**_
 
 1. Create a GitHub account use the following URL **[GitHubJoin](https://github.com/join)** if account doesn't exists.
 2. Once the GitHub account created login to the GitHub portal with Username and Password.
 3. Create a Repository.
-4. Create TF_API_TOKEN secret under the secrets which is available under settings. (Follow Step 6&7 under Terraform Cloud Setup to get the Token)
+4. Create **TF_API_TOKEN** secret under the secrets which is available under settings. (Follow Step 6&7 under [Terraform Cloud Setup](#Terraform-Cloud-Setup) to get the Token)
 5. Upload the terraform scripts to the GitHub repository.
 
 ## _**GitHub Actions**_
@@ -57,6 +58,22 @@
         * select : Register App
 
 10. Save the configuration.
+
+## _**Run the Scenario**_
+
+1. Clone the GitHub Repository.
+2. Create a branch from the main name it as hotfix** if branch doesn't exists else skip this step.
+3. Checkout the hotfix** branch.
+4. Modify the code changes.
+5. Review, commit and push the changes to the repository.
+6. Create a pull request from the hotfix** to main branch.
+7. Once pull request raised a job will be trigger, it will run the terraform format, terraform init and terraform plan.
+8. If step 7 finish successfully review the plan for changes in Infrastructure.
+9. If step 7 fails check the log and modify the code and do step 5.
+10.If step 8 success then Merge the pull request then it will trigger the job and run the terraform apply from pipeline.
+11.A Terraform apply workflow will run on the Terraform Cloud. 
+12.Check the status of the workflow under the workspace under the organization.
+13.If step 12 applied successfully means your deployment got completed.
 
 ## _**Azure Resource Validation**_
 
