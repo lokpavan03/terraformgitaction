@@ -1,5 +1,14 @@
 # terraformgitaction 
 
+<span style="color:black;">In this article</span>
+- [GitHub Setup](#GitHub Setup)
+- [GitHub Actions](#GitHub Actions)
+- [Terraform Cloud Setup](#Terraform Cloud Setup)
+- [Azure RBAC for Service Principal](#Azure RBAC for Service Principal)
+- [Azure Resource Validation](#Azure Resource Validation)
+
+---
+
 ## POC on Azure Infrastructure build from Terraform Cloud with GitHub Actions.
 
 _**GitHub Setup**_
@@ -9,8 +18,12 @@ _**GitHub Setup**_
 3. Create a Repository.
 4. Create TF_API_TOKEN secret under the secrets which is available under settings. (Follow Step 6&7 under Terraform Cloud Setup to get the Token)
 5. Upload the terraform scripts to the GitHub repository.
-6. Create action file for deployment under .github/workflow/
-7.  
+
+_**GitHub Actions**_
+
+1. Go to the Actions tab in GitHub.
+2. Choose a Terraform workflow temaplate.
+3. Update the template with the required actions.
 
 _**Terraform Cloud Setup**_
 
@@ -23,11 +36,11 @@ _**Terraform Cloud Setup**_
 7. Save the token as TF_API_TOKEN in GitHub Secrets.
 8. Create terraform.tfvars variables under the Workspace
 9. Service Principal login needs the following variables and get the values from the Azure App
---------
-           _subscription_id_
-           _client_id_ 
-           _client_secret_
-           _tenant_id_
+
+            subscription_id
+            client_id
+            client_secret
+            tenant_id
           
 _**Azure RBAC for Service Principal**_
 
@@ -40,10 +53,10 @@ _**Azure RBAC for Service Principal**_
 7. Now assign the role based access policies to the registered App.
 8. Go to the subscriptions select Access Control(IAM) the select Add Role Assignment.
 9. Under Add Role Assignment blade
-----------
-        * _Role : **Contributor**_
-        * _Assign access to : **User, group or service principal**
-        * _select : **Register App**
+
+        * Role : Contributor
+        * Assign access to : User, group or service principal
+        * select : Register App
 
 10. Save the configuration.
 
@@ -52,12 +65,12 @@ _**Azure Resource Validation**_
 1. Login to the Azure Portal with your credentials
 2. Go to resouce group and check for **TFCloudRG007** if it exists find the resources under the resourc group 
 3. Validate whether the below resources exists or not
-----------
-           * _Resource Group: **TFCloudRG007**_
-           * _Virtual Network: **Vnet-tf**_
-           * _Subnet: **Subnet01**_
-           * _Public IP: **myPublicIP**_
-           * _Network Security Group: **TFC_NSG**_
-           * _Network Interface: **myNIC**_
-           * _Virtual Machine: **TFCloud**_
+
+           * Resource Group: TFCloudRG007
+           * Virtual Network: Vnet-tf
+           * Subnet: Subnet01
+           * Public IP: myPublicIP
+           * Network Security Group: TFC_NSG
+           * Network Interface: myNIC
+           * Virtual Machine: TFCloud
            
