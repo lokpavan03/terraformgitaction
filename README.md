@@ -1,17 +1,15 @@
 # terraformgitaction 
 
 <span style="color:black;">In this article</span>
-- [GitHub Setup](#GitHub Setup)
-- [GitHub Actions](#GitHub Actions)
-- [Terraform Cloud Setup](#Terraform Cloud Setup)
-- [Azure RBAC for Service Principal](#Azure RBAC for Service Principal)
-- [Azure Resource Validation](#Azure Resource Validation)
-
----
+- [GitHub Setup](#GitHub-Setup)
+- [GitHub Actions](#GitHub-Actions)
+- [Terraform Cloud Setup](#Terraform-Cloud-Setup)
+- [Azure RBAC for Service Principal](#Azure-RBAC-for-Service-Principal)
+- [Azure Resource Validation](#Azure-Resource-Validation)
 
 ## POC on Azure Infrastructure build from Terraform Cloud with GitHub Actions.
 
-_**GitHub Setup**_
+## _**GitHub Setup**_
 
 1. Create a GitHub account use the following URL **[GitHubJoin](https://github.com/join)** if account doesn't exists.
 2. Once the GitHub account created login to the GitHub portal with Username and Password.
@@ -19,13 +17,13 @@ _**GitHub Setup**_
 4. Create TF_API_TOKEN secret under the secrets which is available under settings. (Follow Step 6&7 under Terraform Cloud Setup to get the Token)
 5. Upload the terraform scripts to the GitHub repository.
 
-_**GitHub Actions**_
+## _**GitHub Actions**_
 
 1. Go to the Actions tab in GitHub.
 2. Choose a Terraform workflow temaplate.
 3. Update the template with the required actions.
 
-_**Terraform Cloud Setup**_
+## _**Terraform Cloud Setup**_
 
 1. Create a Terraform Cloud account use the following URL **[TerraformCloud](https://www.terraform.io/cloud)** if account doesn't exists.
 2. Once the Terraform Cloud account created login to the Terraform Cloud portal with Username and Password.
@@ -37,12 +35,12 @@ _**Terraform Cloud Setup**_
 8. Create terraform.tfvars variables under the Workspace
 9. Service Principal login needs the following variables and get the values from the Azure App
 
-            subscription_id
-            client_id
-            client_secret
-            tenant_id
+          * subscription_id
+          * client_id
+          * client_secret
+          * tenant_id
           
-_**Azure RBAC for Service Principal**_
+## _**Azure RBAC for Service Principal**_
 
 1. Login to Azure Portal with credentials if you don't have account create a new account. Follow the URL for create account **[AzurePortal](https://portal.azure.com)**
 2. Navigate to Azure Active Directory, under the Manage blade choose App Registrations.
@@ -60,9 +58,9 @@ _**Azure RBAC for Service Principal**_
 
 10. Save the configuration.
 
-_**Azure Resource Validation**_
+## _**Azure Resource Validation**_
 
-1. Login to the Azure Portal with your credentials
+1. Login to the Azure Portal **[AzurePortal](https://portal.azure.com)** with your credentials
 2. Go to resouce group and check for **TFCloudRG007** if it exists find the resources under the resourc group 
 3. Validate whether the below resources exists or not
 
