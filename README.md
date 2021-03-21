@@ -81,11 +81,11 @@
 2. Go to resouce group and check for **TFCloudRG007** if it exists find the resources under the resourc group 
 3. Validate whether the below resources exists or not
 
-           * Resource Group: TFCloudRG007
-           * Virtual Network: Vnet-tf
-           * Subnet: Subnet01
+           * Resource Group: TFCloudRG
+           * Virtual Network: vnet-tf
+           * Subnet: subnet01
            * Public IP: myPublicIP
            * Network Security Group: TFC_NSG
            * Network Interface: myNIC
-           * Virtual Machine: TFCloud
+           * Virtual Machine: TFCloudVM
            
