@@ -1,3 +1,4 @@
+#Terraform Cloud block here provide the Organization and Workspace details
 terraform {
   backend "remote" {
     organization = "loktf"
@@ -8,7 +9,7 @@ terraform {
   }
 }
 
-# Configure the Microsoft Azure Provider
+#Configure the Microsoft Azure Provider and here logging to Azure with the Service Principal
 provider "azurerm" {
   features {}
   subscription_id = var.subscription_id
@@ -17,15 +18,15 @@ provider "azurerm" {
   tenant_id       = var.tenant_id
 }
 
-#Create a Resource Group
+#Create a Resource Group in Azure using Service Principal
 resource "azurerm_resource_group" "rg" {
-  name     = "TFCloudRG007"
-  location = "West Europe"
+  name     = var.resource_group_name
+  location = var.resource_group_location
 }
 
-#Create a Virtual Network with resource group
+#Create a Virtual Network in resource group
 resource "azurerm_virtual_network" "vnet" {
-  name                = "Vnet-tf"
+  name                = var.vnet_name
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
   address_space       = ["10.0.0.0/16"]
@@ -34,8 +35,9 @@ resource "azurerm_virtual_network" "vnet" {
     }
 }
 
+#Create a Subnet under the Virtual Network
 resource "azurerm_subnet" "subnet" {
-  name                 = "Subnet01"
+  name                 = var.subnet_name
   resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = ["10.0.1.0/24"]
@@ -50,9 +52,9 @@ resource "azurerm_subnet" "subnet" {
 #   }
 }
 
-# Create public IPs
+#Create public IPs for attache it to Virtual Machine
 resource "azurerm_public_ip" "pip" {
-    name                         = "myPublicIP"
+    name                         = var.public_ip
     location                     = azurerm_resource_group.rg.location
     resource_group_name          = azurerm_resource_group.rg.name
     allocation_method            = "Dynamic"
@@ -62,8 +64,9 @@ resource "azurerm_public_ip" "pip" {
     }
 }
 
+#Create Network Security Group and added a Inbound Security rule for open port 22 using TCP
 resource "azurerm_network_security_group" "nsg" {
-    name                = "TFC_NSG"
+    name                = var.network_security_group_name
     location            = azurerm_resource_group.rg.location
     resource_group_name = azurerm_resource_group.rg.name
 
@@ -133,7 +136,7 @@ resource "random_id" "randomId" {
 
 # Create virtual machine
 resource "azurerm_linux_virtual_machine" "myterraformvm" {
-    name                  = "TFCloud"
+    name                  = var.azure_virtual_machine_name
     location              = azurerm_resource_group.rg.location
     resource_group_name   = azurerm_resource_group.rg.name
     network_interface_ids = [azurerm_network_interface.nic.id]
@@ -153,8 +156,8 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
     }
 
     computer_name  = "myvm"
-    admin_username = "azureuser"
-    admin_password = "Password1234!"
+    admin_username = var.admin_vm_username
+    admin_password = var.admin_vm_password
     disable_password_authentication = false
 
     tags = {
