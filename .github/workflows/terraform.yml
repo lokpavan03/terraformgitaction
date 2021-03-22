@@ -5,10 +5,12 @@ on:
     branches:
       - master
       - main
-#     paths:
-#       - terrraform/resourcegroup/*
+    paths:
+      - terrraform/resourcegroup/
       
   pull_request:
+    paths: 
+      - terrraform/resourcegroup/
 
 defaults:
   run:
