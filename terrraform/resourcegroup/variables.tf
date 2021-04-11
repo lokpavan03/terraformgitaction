@@ -66,5 +66,5 @@ variable "admin_vm_password" {
   type        = string
   description = "The default VM admin password is *********, Provide the admin user password in terraform.tfvars file if any change needed."
   sensitive   = true
-  default = ""
+  #default = ""
 }
