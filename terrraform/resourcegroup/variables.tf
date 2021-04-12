@@ -17,7 +17,6 @@ variable "tenant_id" {
 variable "resource_group_name" {
   type        = string
   description = "The default name is TFCloudRG007, Provide the Resource Group Name in terraform.tfvars file if any change needed."
-  default     = "TFCloudRG"
 }
 
 variable "resource_group_location" {
