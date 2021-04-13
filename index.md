@@ -85,7 +85,7 @@
 6. Create a pull request from the hotfix** to main branch.
 7. Once pull request raised a job will be trigger, it will run the terraform format, terraform init and terraform plan.
 8. If step 7 finish successfully review the plan for changes in Infrastructure.
-9. If step 7 fails check the log and modify the code and do step 5.
+9. If step 7 fails check the log and modify the code and do step 5 again.
 10.If step 8 success then Merge the pull request then it will trigger the job and run the terraform apply from pipeline.
 
 ![Workflow](https://github.com/lokpavan03/terraformgitaction/blob/main/gifs/Workflow.gif?raw=true)
