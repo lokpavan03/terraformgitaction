@@ -18,11 +18,15 @@
 4. Create **TF_API_TOKEN** secret under the secrets which is available under settings. (Follow Step 6&7 under [Terraform Cloud Setup](#Terraform-Cloud-Setup) to get the Token)
 5. Upload the terraform scripts to the GitHub repository.
 
+![GitHub](https://github.com/lokpavan03/terraformgitaction/blob/main/gifs/github.gif?raw=true)
+
 ## _**GitHub Actions**_
 
 1. Go to the Actions tab in GitHub.
 2. Choose a Terraform workflow temaplate.
 3. Update the template with the required actions.
+
+![GitHubActionWF](https://github.com/lokpavan03/terraformgitaction/blob/main/gifs/githubactions.gif?raw=true)
 
 ## _**Terraform Cloud Setup**_
 
@@ -51,9 +55,15 @@
 1. Login to Azure Portal with credentials if you don't have account create a new account. Follow the URL for create account **[AzurePortal](https://portal.azure.com)**
 2. Navigate to Azure Active Directory, under the Manage blade choose App Registrations.
 3. Click on New registration provide the necessary inputs and register the app.
+
+![ServicePrincipal](https://github.com/lokpavan03/terraformgitaction/blob/main/gifs/ServicePrincipal.gif?raw=true)
+
 4. Save the **client_id** and **tenant_id** as a variables under Terraform cloud as sensitive data.
 5. Go to the registered app and create a **client_secret** and add the varaiable under the Terraform cloud as sensitive data.
 6. Go to the subscriptions on the overview get the **subscription_id** and add the varaiable under the Terraform cloud as sensitive data. 
+
+![TFCVariables](https://github.com/lokpavan03/terraformgitaction/blob/main/gifs/TFCVariables.gif?raw=true)
+
 7. Now assign the role based access policies to the registered App.
 8. Go to the subscriptions select Access Control(IAM) the select Add Role Assignment.
 9. Under Add Role Assignment blade
@@ -63,6 +73,8 @@
         * select : Register App
 
 10. Save the configuration.
+
+![SPRBAC](https://github.com/lokpavan03/terraformgitaction/blob/main/gifs/SPRBAC.gif?raw=true)
 
 ## _**Run the Scenario**_
 
@@ -76,21 +88,22 @@
 8. If step 7 finish successfully review the plan for changes in Infrastructure.
 9. If step 7 fails check the log and modify the code and do step 5.
 10.If step 8 success then Merge the pull request then it will trigger the job and run the terraform apply from pipeline.
+
+![Workflow](https://github.com/lokpavan03/terraformgitaction/blob/main/gifs/Workflow.gif?raw=true)
+
 11.A Terraform apply workflow will run on the Terraform Cloud. 
 12.Check the status of the workflow under the workspace under the organization.
 13.If step 12 applied successfully means your deployment got completed.
 
+![TFWorkflow](https://github.com/lokpavan03/terraformgitaction/blob/main/gifs/TFcloud.gif?raw=true)
+
 ## _**Azure Resource Validation**_
 
 1. Login to the Azure Portal **[AzurePortal](https://portal.azure.com)** with your credentials
-2. Go to resouce group and check for **TFCloudRG007** if it exists find the resources under the resourc group 
-3. Validate whether the below resources exists or not
+2. Go to resouce group and check for created resources.
+3. Validate whether the resources created or not.
 
-           * Resource Group: TFCloudRG
-           * Virtual Network: vnet-tf
-           * Subnet: subnet01
-           * Public IP: myPublicIP
-           * Network Security Group: TFC_NSG
-           * Network Interface: myNIC
-           * Virtual Machine: TFCloudVM
+![Azure Resources Validation](https://github.com/lokpavan03/InfraAutoJenkinsTFCloud/blob/master/jpgs/Validation.gif)
            
+Thanks,
+Lok
