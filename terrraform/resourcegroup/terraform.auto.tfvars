@@ -1,4 +1,4 @@
-resource_group_name = "TFCloudRGgithub"
+resource_group_name = "TFCloudRGgithub001"
 resource_group_location = "West Europe"
 vnet_name = "vnet-tf"
 subnet_name = "subnet01"
