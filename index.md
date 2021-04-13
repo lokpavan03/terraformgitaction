@@ -102,7 +102,7 @@
 2. Go to resouce group and check for created resources.
 3. Validate whether the resources created or not.
 
-![Azure Resources Validation](https://github.com/lokpavan03/InfraAutoJenkinsTFCloud/blob/master/jpgs/Validation.gif)
+![Azure Resources Validation](https://github.com/lokpavan03/InfraAutoJenkinsTFCloud/blob/master/jpgs/Validation.gif?raw=true)
            
 Thanks,
 Lok
