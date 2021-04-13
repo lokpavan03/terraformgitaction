@@ -30,6 +30,9 @@
 2. Once the Terraform Cloud account created login to the Terraform Cloud portal with Username and Password.
 3. Create an organization if you are new to Terraform cloud or use the existing organization.
 4. Create a workspace while creating it choose API_driven workflow environment type and provide the workspace name.
+
+![Terraform_Cloud](https://github.com/lokpavan03/InfraAutoJenkinsTFCloud/blob/master/jpgs/TerraformWorkspace.gif?raw=true)
+
 5. Setup API_TOKEN for GitHub to Terraform Cloud connection setup
 6. Go to workspace -> Settings -> Under the organizational settings blade choose API Tokens -> Under the API Tokens create Team Tokens -> Copy the Token.
 7. Save the token as TF_API_TOKEN in GitHub Secrets.
@@ -40,6 +43,8 @@
           * client_id
           * client_secret
           * tenant_id
+
+![Terraform_Token](https://github.com/lokpavan03/InfraAutoJenkinsTFCloud/blob/master/jpgs/TerraformToken.gif?raw=true)
           
 ## _**Azure RBAC for Service Principal**_
 
