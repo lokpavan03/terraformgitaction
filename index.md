@@ -1,4 +1,4 @@
-# Azure Infrastructure build from Terraform Cloud with GitHub Actions Workflow.
+# Azure Infra Automation using Terraform Cloud with GitHub Actions.
 
 <span style="color:black;">Contents</span>
 - [GitHub Setup](#GitHub-Setup)
